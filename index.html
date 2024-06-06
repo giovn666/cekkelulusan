@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Kelulusan</title>
+    <style>
+        .hasil-lulus {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h2>Formulir Cek Kelulusan</h2>
+    <form action="#">
+        <label for="nama">Nama Siswa:</label><br>
+        <input type="text" id="nama" name="nama" required><br><br>
+
+        <label for="nilai">Masukkan Nilai:</label><br>
+        <input type="number" id="nilai" name="nilai" step="0.01" required><br><br>
+
+        <label for="jurusan">Pilih Jurusan:</label><br>
+        <select id="jurusan" name="jurusan" required>
+            <option value="Teknik Informatika">Multimedia</option>
+            <option value="Manajemen">RPL</option>
+            <option value="Akuntansi">TKJ</option>
+        </select><br><br>
+
+        <label for="kelas">Pilih Kelas:</label><br>
+        <select id="kelas" name="kelas" required>
+            <option value="Kelas A">X</option>
+            <option value="Kelas B">XI</option>
+            <option value="Kelas C">XII</option>
+        </select><br><br>
+
+        <button type="button" onclick="cekKelulusan()">Cek Kelulusan</button><br><br>
+        <p id="hasil"></p>
+    </form>
+
+    <footer>
+        <p>&copy; RonaldoGiovani XI RPL</p>
+    </footer>
+
+    <script>
+        function cekKelulusan() {
+            var nama = document.getElementById('nama').value;
+            var nilai = parseFloat(document.getElementById('nilai').value);
+            var hasil = document.getElementById('hasil');
+
+            if (nilai >= 70) {
+                hasil.innerHTML = "Selamat, " + nama + ", Anda LULUS!";
+                hasil.className = "hasil-lulus";
+            } else {
+                hasil.innerHTML = "Maaf, " + nama + ", Anda TIDAK LULUS.";
+                hasil.className = ""; // Menghapus kelas hasil-lulus jika tidak lulus
+            }
+        }
+    </script>
+</body>
+</html>
